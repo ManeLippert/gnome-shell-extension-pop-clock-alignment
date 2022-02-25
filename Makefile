@@ -15,9 +15,10 @@ endif
 INSTALLNAME = $(UUID)
 
 SRC = extension.js \
+	  prefs.js \
       metadata.json \
       schemas/gschemas.compiled \
-      schemas/org.gnome.shell.extensions.pop-launcher-super-key.gschema.xml \
+      schemas/org.gnome.shell.extensions.gnome-clock-alignment.gschema.xml \
 
 $(info UUID is "$(UUID)")
 

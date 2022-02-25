@@ -8,7 +8,7 @@
     "41"
   ],
   "url": "https://github.com/ManeLippert/gnome-clock-alignment",
-  "uuid": "clock-alignment@ManeLippert",
+  "uuid": "gnome-clock-alignment@ManeLippert",
   "settings-schema": "org.gnome.shell.extensions.gnome-clock-alignment",
   "version": 1
 }

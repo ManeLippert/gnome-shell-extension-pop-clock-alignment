@@ -1,0 +1,79 @@
+/*
+ * Copyright 2021 José Expósito <jose.exposito89@gmail.com>
+ *
+ * This file is part of gnome-shell-extension-x11gestures.
+ *
+ * This program is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License as published by the Free Software
+ * Foundation,  either version 2 of the License,  or (at your option)  any later
+ * version.
+ *
+ * This program is distributed in the hope that it will be useful,  but  WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the  GNU General Public License along with
+ * this program. If not, see <http://www.gnu.org/licenses/>.
+ */
+const { Gio, GObject, Gtk } = imports.gi;
+
+const ExtensionUtils = imports.misc.extensionUtils;
+const Me = ExtensionUtils.getCurrentExtension();
+
+const CLOCK_ALIGN = "clock-alignment";
+const CLOCK_CENTER = 0;
+const CLOCK_LEFT = 1;
+const CLOCK_RIGHT = 2;
+
+// eslint-disable-next-line no-unused-vars
+function init() {
+    ExtensionUtils.initTranslations();
+}
+
+const SDCSettingsWidget = new GObject.Class({
+    Name: "SDC.Prefs.Widget",
+    GTypeName: "SDCSettingsWidget",
+    Extends: Gtk.Box,
+
+    _init: function(params) {
+        this.parent(params);
+        this.orientation = Gtk.Orientation.VERTICAL;
+        this.spacing = 0;
+        let uiFileSuffix = "";
+
+        if (Gtk.get_major_version() >= "4") {
+            uiFileSuffix = "40";
+            this.__addFn = this.append;
+            this.__showFn = this.show;
+        }
+        else {
+            this.__addFn = x => this.pack_start(x, true, true, 0);
+            this.__showFn = this.show_all;
+        }
+        // creates the settings
+        this._settings = ExtensionUtils.getSettings();
+
+        //let builder = new Gtk.Builder();
+        //builder.set_translation_domain("gnome-clock-alignment");
+//
+        //let mainContainer = builder.get_object("main-container");
+//
+        //this.__addFn(mainContainer);
+        //
+        ////his._signalManager = new SignalManager();
+//
+        //let clockAlign = builder.get_object(CLOCK_ALIGN);
+//
+        //this._settings.bind(CLOCK_ALIGN, clockAlign, "active-id", Gio.SettingsBindFlags.DEFAULT);
+    },
+});
+
+
+// eslint-disable-next-line no-unused-vars
+function buildPrefsWidget() {
+    let _settingsWidget = new SDCSettingsWidget();
+    _settingsWidget.__showFn();
+
+    return _settingsWidget;
+}

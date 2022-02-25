@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+    <enum id='org.gnome.shell.extensions.gnome-clock-alignment'>
+        <value value='0' nick='CENTER'/>
+        <value value='1' nick='LEFT'/>
+        <value value='2' nick='RIGHT'/>
+    </enum>
+    <schema id="org.gnome.shell.extensions.gnome-clock-alignment" path="/org/gnome/shell/extensions/gnome-clock-alignment/">
+        <key name="clock-alignment" enum="org.gnome.shell.extensions.gnome-clock-alignment">
+            <default>'CENTER'</default>
+            <summary>Position of the Clock-Menu</summary>
+            <description/>
+        </key>
+    </schema>
+</schemalist>

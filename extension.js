@@ -1,14 +1,19 @@
-const { Gio, GObject} = imports.gi;
+const Main = imports.ui.main;
 const ExtensionUtils = imports.misc.extensionUtils;
 const extension = ExtensionUtils.getCurrentExtension();
-const Main = imports.ui.main;
 
 const CLOCK_CENTER = 0;
 const CLOCK_LEFT = 1;
 const CLOCK_RIGHT = 2;
 
+let indicatorPad = null;
+
+function init() {
+}
+
 function clock_alignment(alignment) {
-    // Clock Alignement breaks Date Menu, when other extensions like Dash2Panel are used
+
+    // Clock Alignment breaks Date Menu, when other extensions like Dash2Panel are used
     let dash2Panel = Main.extensionManager.lookup("dash-to-panel@jderose9.github.com");
     if(dash2Panel && dash2Panel.state == ExtensionUtils.ExtensionState.ENABLED){
         return;
@@ -56,24 +61,17 @@ function clock_alignment(alignment) {
     }
 }
 
-function monitors_changed() {
-    clock_alignment(settings.get_enum("clock-alignment"));
-}
-
-function init(metadata) {}
 
 function enable() {
 
-    settings = ExtensionUtils.getSettings((extension.metadata["settings-schema"]));
+    this.settings = ExtensionUtils.getSettings('org.gnome.shell.extensions.gnome-clock-alignment');
 
-    settings.connect("changed::clock-alignment", () => {
-        clock_alignment(settings.get_enum("clock-alignment"));
-    });
+    clock_alignment(CLOCK_RIGHT);
+    
 }
 
 function disable() {
     
     clock_alignment(CLOCK_CENTER);
-
-    settings =  null;
+    
 }
