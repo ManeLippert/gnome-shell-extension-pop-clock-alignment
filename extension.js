@@ -7,9 +7,9 @@ const CLOCK_LEFT = 1;
 const CLOCK_RIGHT = 2;
 
 let indicatorPad = null;
+let settings = null;
 
-function init() {
-}
+function init(metadata) {}
 
 function clock_alignment(alignment) {
 
@@ -61,6 +61,9 @@ function clock_alignment(alignment) {
     }
 }
 
+function monitors_changed() {
+    clock_alignment(settings.get_enum("clock-alignment"));
+}
 
 function enable() {
 
@@ -69,11 +72,21 @@ function enable() {
     settings.connect("changed::clock-alignment", () => {
         clock_alignment(settings.get_enum("clock-alignment"));
     });
+
+    // Connect monitors-changed handler
+    signal_monitors_changed = Main.layoutManager.connect('monitors-changed', monitors_changed);
+    monitors_changed();
     
 }
 
 function disable() {
     
+    // Disconnect monitors-changed handler
+    if (signal_monitors_changed !== null) {
+        Main.layoutManager.disconnect(signal_monitors_changed);
+        signal_monitors_changed = null;
+    }
+
     clock_alignment(CLOCK_CENTER);
     
 }
