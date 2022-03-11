@@ -4,7 +4,7 @@
 
 Fork of [Pop COSMIC](https://github.com/pop-os/cosmic) that only uses the clock option.
 
-Move Gnome-Panel Clock to ```left```, ```center``` and ```right``` side of the panel. The difference between [Flippery Move Clock](https://extensions.gnome.org/extension/2/move-clock/) and [Just Perfection](https://extensions.gnome.org/extension/3843/just-perfection/) is that this extension moves the clock behind the ```system try```.
+Move Gnome-Panel Clock to ```left```, ```center``` and ```right``` side of the panel. The difference between [Flippery Move Clock](https://extensions.gnome.org/extension/2/move-clock/) and [Just Perfection](https://extensions.gnome.org/extension/3843/just-perfection/) is that this extension moves the clock behind the ```system tray```.
 
 ## Requirements
 [Pop!_OS](https://pop.system76.com/)
@@ -20,7 +20,7 @@ Move Gnome-Panel Clock to ```left```, ```center``` and ```right``` side of the p
     killall -3 gnome-shell
     ```
 
-    The '''sudo''' command is needed to ensure that the extensions overwrite everything that got set up with other extensions.
+    The ```sudo``` command is needed to ensure that the extensions overwrite everything that got set up with other extensions.
 * ### From Release
     Download release-file, unzip it and move it to ```/usr/share/gnome-shell/extensions/```
 
