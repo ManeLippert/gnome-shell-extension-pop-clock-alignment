@@ -1,6 +1,6 @@
 # Pop!_OS Launcher on Super-Key
 
-![alt text](pop-launcher-super-key.png)
+![alt text](pop-clock-alignment.png)
 
 After disabling the Pop-Cosmic Extension the Pop-Launcher does not open when hitting ```Super``` but when hitting ```Super+/```. So I forked the Pop-Cosmic Extension and removed everything that does not control the Pop-Launcher to get back the ```Super``` Shortcut for the Pop-Launcher back. 
 
