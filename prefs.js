@@ -1,60 +1,36 @@
-'use strict';
-
+const Gdk = imports.gi.Gdk;
 const Gio = imports.gi.Gio;
 const Gtk = imports.gi.Gtk;
 
-const ExtensionUtils = imports.misc.extensionUtils;
-const Me = ExtensionUtils.getCurrentExtension();
-
+function open_panel() {
+    const appinfo = Gio.DesktopAppInfo.new("gnome-background-panel.desktop");
+    const launch_ctx = Gdk.Display.get_default().get_app_launch_context();
+    appinfo.launch([], launch_ctx);
+}
 
 function init() {
 }
 
 function buildPrefsWidget() {
-
-    // Copy the same GSettings code from `extension.js`
-    this.settings = ExtensionUtils.getSettings(
-        'org.gnome.shell.extensions.gnome-clock-alignment');
-
-    // Create a parent widget that we'll return from this function
-    let prefsWidget = new Gtk.Grid({
-        column_spacing: 12,
-        row_spacing: 12,
-        visible: true,
+    const label = new Gtk.Label({
+        label: "Configuration for the dock, the top bar, the workspaces overview, and\nother COSMIC components is available in the Settings application.",
+        justify: Gtk.Justification.CENTER,
     });
 
-    // Add a simple title and add it to the prefsWidget
-    let title = new Gtk.Label({
-        label: `<b>${Me.metadata.name} Preferences</b>`,
-        halign: Gtk.Align.START,
-        use_markup: true,
-        visible: true
+    const button = new Gtk.Button({
+        label: "Configure in Settings",
+        halign: Gtk.Align.CENTER,
     });
-    prefsWidget.attach(title, 0, 0, 2, 1);
+    button.connect("clicked", open_panel);
 
-    // Create a label & switch for `show-indicator`
-    let toggleLabel = new Gtk.Label({
-        label: 'Show Extension Indicator:',
-        halign: Gtk.Align.START,
-        visible: true
+    const box = new Gtk.Box({
+        orientation: Gtk.Orientation.VERTICAL,
+        spacing: 18,
+        halign: Gtk.Align.CENTER,
+        valign: Gtk.Align.CENTER,
     });
-    prefsWidget.attach(toggleLabel, 0, 1, 1, 1);
+    box.append(label);
+    box.append(button);
 
-    let toggle = new Gtk.Switch({
-        active: this.settings.get_boolean ('show-indicator'),
-        halign: Gtk.Align.END,
-        visible: true
-    });
-    prefsWidget.attach(toggle, 1, 1, 1, 1);
-
-    // Bind the switch to the `show-indicator` key
-    this.settings.bind(
-        'show-indicator',
-        toggle,
-        'active',
-        Gio.SettingsBindFlags.DEFAULT
-    );
-
-    // Return our widget which will be added to the window
-    return prefsWidget;
+    return box;
 }

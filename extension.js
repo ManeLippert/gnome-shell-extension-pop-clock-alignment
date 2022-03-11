@@ -64,9 +64,11 @@ function clock_alignment(alignment) {
 
 function enable() {
 
-    this.settings = ExtensionUtils.getSettings('org.gnome.shell.extensions.gnome-clock-alignment');
+    settings = ExtensionUtils.getSettings((extension.metadata["settings-schema"]));
 
-    clock_alignment(CLOCK_RIGHT);
+    settings.connect("changed::clock-alignment", () => {
+        clock_alignment(settings.get_enum("clock-alignment"));
+    });
     
 }
 

@@ -1,14 +1,14 @@
 {
-  "description": "Fork of Pop COSMIC: Moves gnome-panel clock behind system tray (right) and activities button (left) or let it stay center",
-  "name": "Clock Alignment",
+  "description": "Fork of Pop COSMIC: Moves gnome-panel clock behind system tray (right) and activities button (left) or let it stay (center)",
+  "name": "Pop Clock Alignment",
   "original-authors": "System76",
   "shell-version": [
     "3.38",
     "40",
     "41"
   ],
-  "url": "https://github.com/ManeLippert/gnome-clock-alignment",
-  "uuid": "gnome-clock-alignment@ManeLippert",
-  "settings-schema": "org.gnome.shell.extensions.gnome-clock-alignment",
+  "url": "https://github.com/ManeLippert/pop-clock-alignment",
+  "uuid": "pop-clock-alignment@ManeLippert",
+  "settings-schema": "org.gnome.shell.extensions.pop-cosmic",
   "version": 1
 }

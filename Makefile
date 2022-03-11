@@ -4,7 +4,7 @@
 UUID = $(shell grep -E '^[ ]*"uuid":' ./metadata.json | sed 's@^[ ]*"uuid":[ ]*"\(.\+\)",[ ]*@\1@')
 
 ifeq ($(XDG_DATA_HOME),)
-XDG_DATA_HOME = $(HOME)/.local/share
+XDG_DATA_HOME = $(DESTDIR)/usr/share
 endif
 
 ifeq ($(strip $(DESTDIR)),)
@@ -18,7 +18,7 @@ SRC = extension.js \
 	  prefs.js \
       metadata.json \
       schemas/gschemas.compiled \
-      schemas/org.gnome.shell.extensions.gnome-clock-alignment.gschema.xml \
+      schemas/org.gnome.shell.extensions.pop-cosmic.gschema.xml \
 
 $(info UUID is "$(UUID)")
 
