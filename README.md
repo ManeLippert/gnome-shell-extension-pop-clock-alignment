@@ -20,7 +20,7 @@ Move Gnome-Panel Clock to ```left```, ```center``` and ```right``` side of the p
     killall -3 gnome-shell
     ```
 
-    The ```sudo``` command is needed to ensure that the extensions overwrite everything that got set up with other extensions.
+    The ```sudo``` command is needed to ensure that the extensions overwrite everything that got set up with other extensions and to save it in ```/usr/share/gnome-shell/extensions/```.
 * ### From Release
     Download release-file, unzip it and move it to ```/usr/share/gnome-shell/extensions/```
 
