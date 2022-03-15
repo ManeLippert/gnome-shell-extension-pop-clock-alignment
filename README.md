@@ -20,7 +20,7 @@ Move Gnome-Panel Clock to ```left```, ```center``` and ```right``` side of the p
     killall -3 gnome-shell
     ```
 
-    The ```sudo``` command is needed to save the extension in ```/usr/share/gnome-shell/extensions/```. The extension is required to bei installed in ```/usr/share/gnome-shell/extensions/``` to ensure that the settings does not get overwrite by other extensions.
+    The ```sudo``` command is needed to save the extension in ```/usr/share/gnome-shell/extensions/```. The extension is required to bei installed in ```/usr/share/gnome-shell/extensions/``` to ensure that the settings of the extension does not get overwritten by other extensions.
 * ### From Release
     Download release-file, unzip it and move it to ```/usr/share/gnome-shell/extensions/```
 
