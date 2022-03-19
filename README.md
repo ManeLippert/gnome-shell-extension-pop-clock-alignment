@@ -1,4 +1,4 @@
-# Pop!_OS Launcher on Super-Key
+# Pop!_OS Clock Alignment
 
 ![alt text](pop-clock-alignment-panelOnly.png)
 
