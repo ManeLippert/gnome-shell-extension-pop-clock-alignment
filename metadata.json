@@ -5,10 +5,11 @@
   "shell-version": [
     "3.38",
     "40",
-    "41"
+    "41",
+    "42"
   ],
   "url": "https://github.com/ManeLippert/pop-clock-alignment",
   "uuid": "pop-clock-alignment@ManeLippert",
   "settings-schema": "org.gnome.shell.extensions.pop-cosmic",
-  "version": 1
+  "version": 3
 }
