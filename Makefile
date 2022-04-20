@@ -1,10 +1,12 @@
 # Basic Makefile
 
+# For overwriting settings of other extensions ('just perfection for example') 'sudo' is needed
+
 # Retrieve the UUID from ``metadata.json``
 UUID = $(shell grep -E '^[ ]*"uuid":' ./metadata.json | sed 's@^[ ]*"uuid":[ ]*"\(.\+\)",[ ]*@\1@')
 
 ifeq ($(XDG_DATA_HOME),)
-XDG_DATA_HOME = $(DESTDIR)/usr/share # for overwriting settings of other extensions ('just perfection for example')
+XDG_DATA_HOME = $(DESTDIR)/usr/share
 #XDG_DATA_HOME = $(HOME)/.local/share
 endif
 
