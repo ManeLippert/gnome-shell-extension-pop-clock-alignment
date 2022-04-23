@@ -14,7 +14,7 @@ Move Gnome-Panel Clock to ```left```, ```center``` and ```right``` side of the p
 * ### From Source
 
     ```
-    git clone https://github.com/ManeLippert/pop-clock-alignment
+    git clone https://github.com/ManeLippert/pop-clock-alignment.git
     cd pop-clock-alignment
     sudo make && sudo make install
     killall -3 gnome-shell
