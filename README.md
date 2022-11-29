@@ -1,5 +1,7 @@
 # Pop!_OS Clock Alignment
 
+Since Pop!_OS moves to its on desktop enviroment (COSMIC DE) and I left linux behind me this extension will not get continued.
+
 ![alt text](pop-clock-alignment-panelOnly.png)
 
 Fork of [Pop COSMIC](https://github.com/pop-os/cosmic) that only uses the clock option.
